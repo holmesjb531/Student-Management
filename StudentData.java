@@ -11,6 +11,7 @@ public class StudentData {
 	private String studentID;
 	private static int id = 1000;
 	private boolean tuitionPayed;
+	private String nameOfYear;
 	
 	public StudentData() {
 		Scanner sc = new Scanner(System.in);
@@ -25,8 +26,24 @@ public class StudentData {
 		this.year = sc.nextLine();
 		
 		setStudentID();
-		System.out.println(firstName + " " + lastName + " " + year + " " + studentID);
+		setNameOfYear();
+		System.out.println(firstName + " " + lastName + " " + nameOfYear + " " + studentID);
 		
+	}
+	
+	private void setNameOfYear() {
+		if(this.year.equals("1")) {
+			this.nameOfYear = "Freshman";
+			
+		}else if(this.year.equals("2")) {
+			this.nameOfYear = "Sophomore";
+		}else if(this.year.equals("3")) {
+			this.nameOfYear = "Junior";
+		}else if(this.year.equals("4")) {
+			this.nameOfYear = "Senior";
+		}else {
+			this.nameOfYear = "Super Senior";
+		}
 	}
 	
 	private void setStudentID() {
@@ -81,7 +98,7 @@ public class StudentData {
 	
 	public String showInfo() {
 		return "\nSTUDENT'S NAME: " + firstName + " " + lastName +
-				"\nYEAR OF STUDENT: " + year + 
+				"\nYEAR OF STUDENT: " + nameOfYear + 
 				"\nSTUDENT'S ID: " + studentID +
 				"\nTUITION PAYED: " + tuitionPayed;
 	}
